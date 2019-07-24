@@ -28,7 +28,7 @@ pipeline {
         stage('promote') {
             when { equals expected: 'master', actual: env.BRANCH_NAME }
             steps {
-                habitat task: 'promote', channel: 'stage', lastBuildFile: "${workspace}/results/last_build.env", authToken: env.HAB_AUTH_TOKEN, bldrUrl: env.HAB_BLDR_URL
+                habitat task: 'promote', channel: 'stable', lastBuildFile: "${workspace}/results/last_build.env", authToken: env.HAB_AUTH_TOKEN, bldrUrl: env.HAB_BLDR_URL
             }
         }
     }
